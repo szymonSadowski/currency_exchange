@@ -1,20 +1,24 @@
 import React from 'react'
 
-export default function CurrencyRow() {
-    return (
-
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-      <div role="separator" class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
+export default function CurrencyRow(props) {
+  const {
+    currencyOptions,
+    selectedCurrency,
+    onChangeCurrency,
+    amount,
+    onChangeAmount
+  } = props
+  return (
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <input type="number" class="form-control" value={amount} onChange={onChangeAmount}/>
+        <select value={selectedCurrency} onChange={onChangeCurrency} class="form-control" searchable="Search here..">
+          {/* we loop through array and set every option to one of these values (currencies) */}
+          {currencyOptions.map(option => (
+            <option key={option} value={option}>{option}</option>
+          ))}
+        </select>
+      </div>
     </div>
-  </div>
-  <input type="text" class="form-control" aria-label="Text input with dropdown button"/>
-</div>
-    )
+  )
 }
