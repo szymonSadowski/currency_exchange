@@ -1,7 +1,7 @@
 // Maintainter : @ssadowsk
 // Version: 1.0.0
 // Production: No
-// For: PWDS2020
+// For: PWDS
 
 import React, { useEffect, useState } from 'react';
 import CurrencyRow from './CurrencyRow'
